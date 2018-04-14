@@ -24,11 +24,11 @@ class DiscountsPage(BasePage):
     _panda_tshirt_regular_price = "//div[@class='product-prices']//span[@class='regular-price']"
 
     def priceCheck(self, discountnum):
-        cPrice = self.driver.find_element(By.XPATH, self._panda_tshirt_current_price).get_attribute("content")
-        currentPrice= cPrice.replace(",", ".")
-        rPrice = self.driver.find_element(By.XPATH,self._panda_tshirt_regular_price).text
-        rrPrice = rPrice.replace("zł", "")
-        regularPrice = rrPrice.replace(",",".")
+        currentPrice = self.driver.find_element(By.XPATH, self._panda_tshirt_current_price).get_attribute("content")
+        currentPrice= currentPrice.replace(",", ".")
+        regularPrice = self.driver.find_element(By.XPATH,self._panda_tshirt_regular_price).text
+        regularPrice = regularPrice.replace("zł", "")
+        regularPrice = regularPrice.replace(",",".")
         discount = float(regularPrice) * float(discountnum)
         if (float(regularPrice) - float(discount)) == float(currentPrice):
             return True
