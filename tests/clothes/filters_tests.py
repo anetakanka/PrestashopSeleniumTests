@@ -41,7 +41,7 @@ class FiltersTests(unittest.TestCase):
     def test_multiFilters(self):
         self.log.info("Multiple clothes used successful")
         self.fp.multipleFiltersClick()
-        result = self.fp.multypleFiltersSuccessful()
+        result = self.fp.multipleFiltersSuccessful()
         assert result == True
         self.ts.markFinal("test_multiFilters", result, "Multiple clothes use verification SUCCESSED")
 

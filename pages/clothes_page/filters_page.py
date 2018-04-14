@@ -64,7 +64,7 @@ class FiltersPage(BasePage):
         actions = ActionChains(self.driver)
         actions.move_to_element(element).perform()
         self.waitForElement(locator="//ul[@id='top-menu']/li[1]/div", locatorType="xpath")
-        self.elementClick(locator="//ul[@id='top-menu']//a[@href='http://localhost/prestashop/12-bluzki']")
+        self.elementClick(locator="//ul[@id='top-menu']/li[1]/div/ul/li[2]//a[contains(text(),'Bluzki')]", locatorType="xpath")
 
     def collapseMenuWomenBlouse(self):
         self.nav.goToClothesPage()
@@ -83,7 +83,7 @@ class FiltersPage(BasePage):
         self.elementClick(locator=self._black_color, locatorType='xpath')
         time.sleep(2)
 
-    def multypleFiltersSuccessful(self):
+    def multipleFiltersSuccessful(self):
         # Checks if selected products are the same as products in database
         products = []
         text_list = []
@@ -92,9 +92,9 @@ class FiltersPage(BasePage):
         for product in product_list:
             hr = product.text
             text_list.append(hr.lower())
-        product_list_database = open("product_list_black_m.txt", "r", encoding="utf-8")
-        product_list_d = product_list_database.readlines()
-        for line in product_list_d:
+        file = open("product_list_black_m.txt", "r", encoding="utf-8")
+        product_list_database = file.readlines()
+        for line in product_list_database:
             el = line.rstrip()
             products.append(el.lower())
         for line in products:
