@@ -34,8 +34,8 @@ class ContactPage(BasePage):
 
     def contactEmail(self, contactemail):
         self.nav.goToContactPage()
-        cemail = self.getElement(locator=self._contact_email, locatorType="xpath")
-        email = cemail.text
+        contact_email = self.getElement(locator=self._contact_email, locatorType="xpath")
+        email = contact_email.text
         if email == contactemail:
             result = True
         else:
