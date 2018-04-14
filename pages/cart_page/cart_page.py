@@ -84,20 +84,20 @@ class CartPage(BasePage):
         elements = self.driver.find_elements(By.XPATH, "//div[@class='current-price']/span[@class='price']")
         prices = []
         for el in elements:
-            pri = el.text
-            pri = pri.replace("zł", "")
-            pric = pri.replace(",",".")
-            price = pric.rstrip()
-            pricee = float(price)
-            priceee = format(pricee,".2f")
-            prices.append(priceee)
+            price = el.text
+            price = price.replace("zł", "")
+            price = price.replace(",",".")
+            price = price.rstrip()
+            price = float(price)
+            price = format(price,".2f")
+            prices.append(price)
         numOfProducts = self.driver.find_elements(By.NAME, "product-quantity-spin")
         numsOfProducts = []
         for num in numOfProducts:
-            numbe = num.get_attribute("value")
-            number = float(numbe)
-            numberr = format(number,".2f")
-            numsOfProducts.append(numberr)
+            number = num.get_attribute("value")
+            number = float(number)
+            number = format(number,".2f")
+            numsOfProducts.append(number)
         multiplyProducts = []
         for i in range(0,len(prices)):
             multiply = float(numsOfProducts[i])*float(prices[i])
@@ -105,8 +105,8 @@ class CartPage(BasePage):
         sumOfProducts = sum(multiplyProducts)
         sumOfProductss = format(sumOfProducts,".2f")
         sumNum = self.driver.find_element(By.XPATH, "//div[@id='cart-subtotal-products']/span[@class='value']").text.replace("zł","")
-        sumNumm = sumNum.replace(",",".")
-        if float(sumOfProductss) == float(sumNumm):
+        sumNum = sumNum.replace(",",".")
+        if float(sumOfProductss) == float(sumNum):
             result = True
         else:
             result = False
@@ -133,17 +133,17 @@ class CartPage(BasePage):
         self.elementClick(locator=self._go_to_fulfill_the_order_button, locatorType="xpath")
         self.waitForElement(locator="cart-detailed-totals", locatorType="class")
         firstPrice = self.driver.find_element(By.XPATH, "//div[@id='cart-subtotal-products']/span[@class='value']").text
-        pr1 = firstPrice.replace("zł", "")
-        pri1 = pr1.replace(",",".")
-        pric1 = float(pri1)
-        price1 = format(pric1, ".2f")
+        price1 = firstPrice.replace("zł", "")
+        price1 = price1.replace(",",".")
+        price1 = float(price1)
+        price1 = format(price1, ".2f")
         self.elementClick(locator=self._touchspin_down, locatorType="xpath")
         time.sleep(2)
         secondPrice = self.driver.find_element(By.XPATH, "//div[@id='cart-subtotal-products']/span[@class='value']").text
-        pr2 = secondPrice.replace("zł", "")
-        pri2 = pr2.replace(",",".").rstrip()
-        pric2 = float(pri2)
-        price2 = format(pric2,".2f")
+        price2 = secondPrice.replace("zł", "")
+        price2 = price2.replace(",",".").rstrip()
+        price2 = float(price2)
+        price2 = format(price2,".2f")
         if float(price1) > float(price2):
             result = True
         else:
