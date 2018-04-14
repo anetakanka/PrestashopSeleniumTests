@@ -104,7 +104,7 @@ class CheckoutTests(unittest.TestCase):
         self.log.info("Personal information form for logged in client verification successful")
         self.nav.clearCartandGoToMainPage()
         self.lp.logOut()
-        result = self.chp.personalInfVeryficationLoggedinClient(username="Ewa Kowalska", email="test3@test.com",
+        result = self.chp.personalInfVerificationLoggedInClient(username="Ewa Kowalska", email="test3@test.com",
                                                        password="abcabc123")
         assert result == True
 
@@ -114,7 +114,7 @@ class CheckoutTests(unittest.TestCase):
         self.nav.backToHomePage()
         self.lp.logOut()
         address = "Ewa Kowalska\nul. Testowa\n00-000 Warszawa\nPolska\n600600600"
-        result = self.chp.addressVeryficationLoggedinClient(address=address, email="test3@test.com", password="abcabc123")
+        result = self.chp.addressVerificationLoggedInClient(address=address, email="test3@test.com", password="abcabc123")
         assert result == True
 
     @pytest.mark.run(order=10)

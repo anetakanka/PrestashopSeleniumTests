@@ -25,7 +25,7 @@ class CheckoutPage(BasePage):
     _checkout_form = "checkout-personal-information-step" #byid
     # for visitor client
     _gender = "//div[@class='col-md-6 form-control-valign']/label[1]//input[@name='id_gender']"#byxpath gender = men
-    _address_checkout_form = "//div[@class='js-address-form'][1]" #byxpath #pojawia się gdy poprawnie wypełni się pierwszy formularz
+    _address_checkout_form = "//div[@class='js-address-form'][1]" #byxpath
     _firstname = "firstname" #byname
     _lastname = "lastname" #byname
     _email = "//input[@name='email'][1]" #byxpath
@@ -42,7 +42,7 @@ class CheckoutPage(BasePage):
     _delivery_message = "delivery_message" #byid
     _confirm_delivery_option = "confirmDeliveryOption" #byname
     _payment_option2 = "payment-option-2" #byid
-    _conditions_acceptance = "conditions_to_approve[terms-and-conditions]" #byid bez togo nie można kliknąć payment confirmation sprawdz!
+    _conditions_acceptance = "conditions_to_approve[terms-and-conditions]" #byid
     _payment_confirmation = "//div[@id='payment-confirmation']//button[@type='submit']" #byxpath
     #for logged in client
     _personal_inf = "//section[@id='checkout-personal-information-step']/h1" #byxpath
@@ -141,7 +141,7 @@ class CheckoutPage(BasePage):
         self.lp.login(email,password)
         self.goToCheckout()
 
-    def personalInfVeryficationLoggedinClient(self, username, email, password):
+    def personalInfVerificationLoggedInClient(self, username, email, password):
         self.checkoutLoggedInClient(email, password)
         self.waitForElement(locator=self._personal_inf, locatorType="xpath")
         self.elementClick(locator=self._personal_inf, locatorType="xpath")
@@ -153,7 +153,7 @@ class CheckoutPage(BasePage):
             result = False
         return result
 
-    def addressVeryficationLoggedinClient(self, address, email, password):
+    def addressVerificationLoggedInClient(self, address, email, password):
         #w tescie zrób go to main page i wyloguj najpierw
         self.checkoutLoggedInClient(email,password)
         self.waitForElement(locator=self._address2, locatorType="class")
