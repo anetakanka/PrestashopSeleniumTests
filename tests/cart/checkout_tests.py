@@ -32,7 +32,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=2)
     def test_checkoutGuestFormPersonalInformationFailed(self):
         self.log.info("Personal Information form for guest client failed due to wrong email")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         result = self.chp.checkoutGuestFormPersonalInformationFailed(firstname="Adam",lastname="Kowalski",
                                                                          email="test@test.com", password="abcabc123")
@@ -41,7 +41,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=3)
     def test_addressFormSuccessful(self):
         self.log.info("Address form for guest client successful")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         email = email = "test" + str(round(time.time() * 1000)) + "@test.com"
         result = self.chp.addressFormSuccessful(firstname="Adam",lastname="Kowalski",email=email, password="abcabc123",
@@ -51,7 +51,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=4)
     def test_addressFormFailed(self):
         self.log.info("Address form for guest client failed due to wrong postcode")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         email = email = "test" + str(round(time.time() * 1000)) + "@test.com"
         result = self.chp.addressFormFailed(firstname="Adam",lastname="Kowalski",email=email, password="abcabc123",
@@ -61,7 +61,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=5)
     def test_addressFormFailed2(self):
         self.log.info("Address form for guest client failed due to wrong phone number")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         email = email = "test" + str(round(time.time() * 1000)) + "@test.com"
         result = self.chp.addressFormFailed(firstname="Adam", lastname="Kowalski", email=email, password="abcabc123",
@@ -71,7 +71,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=6)
     def test_deliverySuccessed(self):
         self.log.info("Delivery form successed")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         email = email = "test" + str(round(time.time() * 1000)) + "@test.com"
         result = self.chp.deliverySuccessed(firstname="Adam",lastname="Kowalski",email=email, password="abcabc123",
@@ -81,7 +81,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=7)
     def test_paymentConditionsAcceptanceVerification(self):
         self.log.info("Payment conditions acceptance verification successful")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         email = email = "test" + str(round(time.time() * 1000)) + "@test.com"
         result = self.chp.paymentConditionsAcceptanceVerification(firstname="Adam",lastname="Kowalski",email=email,
@@ -92,7 +92,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=8)
     def test_paymentSuccessed(self):
         self.log.info("Address form for guest client successful")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         email = email = "test" + str(round(time.time() * 1000)) + "@test.com"
         result = self.chp.paymentSuccessed(firstname="Adam",lastname="Kowalski",email=email, password="abcabc123",
@@ -102,7 +102,7 @@ class CheckoutTests(unittest.TestCase):
     @pytest.mark.run(order=9)
     def test_personalInfVeryficationLoggedinClient(self):
         self.log.info("Personal information form for logged in client verification successful")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
         result = self.chp.personalInfVerificationLoggedInClient(username="Ewa Kowalska", email="test3@test.com",
                                                        password="abcabc123")

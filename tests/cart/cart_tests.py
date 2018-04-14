@@ -29,21 +29,21 @@ class CartTests(unittest.TestCase):
     @pytest.mark.run(order=2)
     def test_priceOfProductsSuccessful(self):
         self.log.info("Price of products in cart page successful")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         result = self.cp.priceOfProductsInBasket(quantity=2)
         assert result == True
 
     @pytest.mark.run(order=3)
     def test_deleteFromCartSuccessful(self):
         self.log.info("Delete from cart successful")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         result = self.cp.deleteFromCart()
         assert result == True
 
     @pytest.mark.run(order=4)
     def test_changeQuantitySuccessful(self):
         self.log.info("Change quantity of products in cart successful")
-        self.nav.clearCartandGoToMainPage()
+        self.nav.clearCartAndGoToMainPage()
         result = self.cp.changeQuantity()
         assert result == True
         self.ts.markFinal("test_changeQuantitySuccessful", result, "Changed quantity of products in cart Successful "

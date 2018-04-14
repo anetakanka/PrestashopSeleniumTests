@@ -23,7 +23,7 @@ class NavigationPage(BasePage):
     def goToClothesPage(self):
         self.elementClick(locator=self._clothes_page)
 
-    def clearCartandGoToMainPage(self):
+    def clearCartAndGoToMainPage(self):
         self.backToHomePage()
         self.waitForElement(locator="cart-products-count",locatorType="class")
         self.elementClick(locator="cart-products-count",locatorType="class")
