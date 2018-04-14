@@ -100,7 +100,7 @@ class CheckoutTests(unittest.TestCase):
         assert result == True
 
     @pytest.mark.run(order=9)
-    def test_personalInfVeryficationLoggedinClient(self):
+    def test_personalInfVerificationLoggedInClient(self):
         self.log.info("Personal information form for logged in client verification successful")
         self.nav.clearCartAndGoToMainPage()
         self.lp.logOut()
@@ -109,7 +109,7 @@ class CheckoutTests(unittest.TestCase):
         assert result == True
 
     @pytest.mark.run(order=10)
-    def test_addressVeryficationLoggedinClient(self):
+    def test_addressVerificationLoggedInClient(self):
         self.log.info("Address form for logged in client successful")
         self.nav.backToHomePage()
         self.lp.logOut()
@@ -118,7 +118,7 @@ class CheckoutTests(unittest.TestCase):
         assert result == True
 
     @pytest.mark.run(order=10)
-    def test_addNewAddressLoggedinClient(self):
+    def test_addNewAddressLoggedInClient(self):
         self.log.info("Add address form for logged in client successful")
         self.nav.backToHomePage()
         self.lp.logOut()
