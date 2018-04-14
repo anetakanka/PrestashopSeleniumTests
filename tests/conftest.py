@@ -1,15 +1,9 @@
 import pytest
 from base.webdriverfactory import WebDriverFactory
 
-@pytest.yield_fixture()
-#@pytest.fixture()
-def setUp():
-    print("Running method level setUp")
-    yield
-    print("Running method level tearDown")
 
 @pytest.yield_fixture(scope="class")
-#@pytest.fixture(scope="class")
+# @pytest.fixture(scope="class")
 def oneTimeSetUp(request, browser):
     print("Running one time setUp")
     wdf = WebDriverFactory(browser)
