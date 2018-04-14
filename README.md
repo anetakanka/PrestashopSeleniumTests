@@ -1,6 +1,6 @@
 # Prestashop Selenium Tests
 
-Project includes a framework and sample tests that are covering the main functionalities of the Black&white shop. The shop is build on the prestashop, in the default template for the clothing shop.
+Project includes a framework and sample tests that are covering the main functionalities of the Black&white shop. The shop is build on the prestashop and it’s using default template for the clothing shop.
 Code is written in python and selenium.
 
 ## Requirements:
